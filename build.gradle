@@ -35,8 +35,12 @@ idea {
 
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-web:1.2.3.RELEASE')
+    compile('org.springframework.boot:spring-boot-starter-data-jpa:1.2.3.RELEASE')
+
     compile('org.thymeleaf:thymeleaf-spring4:2.1.4.RELEASE')
     compile('net.sourceforge.nekohtml:nekohtml:1.9.21')
+
+    runtime('com.h2database:h2:1.4.187')
 
     testCompile('junit:junit:4.11')
 }
