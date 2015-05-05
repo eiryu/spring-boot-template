@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Comment</title>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+</head>
+<body onload="document.comment.focus();">
+    <div class="container">
+        <h1>コメント</h1>
+
+        <p th:if="${error}" th:text="${error}" class="alert alert-warning">エラーです</p>
+
+        <form method="post" th:action="@{/comment/register}">
+            <input type="text" name="comment" class="form-control" placeholder="コメントを入力してエンター">
+        </form>
+
+        <table class="table">
+            <tr>
+                <th>コメント</th>
+                <th class="col-md-2">作成日時</th>
+            </tr>
+            <tr th:each="comment : ${comments}">
+                <td th:text="${comment.value}">コメント</td>
+                <td th:text="${comment.createdAt}">作成日時</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
