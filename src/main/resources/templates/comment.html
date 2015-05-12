@@ -13,11 +13,13 @@
 <body>
     <div class="container">
         <h1>コメント</h1>
+        <!--<p th:text="${_csrf.token}"></p>-->
 
         <p th:if="${error}" th:text="${error}" class="alert alert-warning">エラーです</p>
 
         <form method="post" th:action="@{/comment/register}">
             <input type="text" name="comment" class="form-control" placeholder="コメントを入力してエンター">
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
         </form>
 
         <table class="table">
